@@ -2,7 +2,7 @@ const DataAccessor = require("./accessor/DataAccessor");
 const Engine = require("./accessor/Engine");
 
 function Main() {
-    const dao = new DataAccessor("./db/test.db");
+    const dao = new DataAccessor("./db/test.sqlite3");
     const engine = new Engine(dao);
 
     engine.CreateTable()
@@ -19,4 +19,4 @@ function Main() {
         })
 }
 
-Main();
+Main(); 
