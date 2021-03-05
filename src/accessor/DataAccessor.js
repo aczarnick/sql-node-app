@@ -3,7 +3,7 @@ const sqlite3 = require("sqlite3").verbose();
 
 class DataAccessor {
     constructor(dbFilePath){
-        this.db = new sqlite3.Database(dbFilePath, (err) => {
+        this.db = new sqlite3.Database(dbFilePath, function (err) {
             if (err) {
                 console.error(err.message);
             }
@@ -15,7 +15,7 @@ class DataAccessor {
 
     run(sql, params = []) {
         return new Promise((resolve, reject) => {
-            this.db.run(sql, params, (err) => {
+            this.db.run(sql, params, function (err) {
                 if (err) {
                     console.log(`Error running sql: ${sql}`)
                     console.error(err)
@@ -30,7 +30,7 @@ class DataAccessor {
 
     get(sql, params = []) {
         return new Promise((resolve, reject) => {
-            this.db.get(sql, params, (err, result) => {
+            this.db.get(sql, params, function (err, result) {
                 if (err) {
                     console.log(`Error running sql: ${sql}`)
                     console.error(err)
@@ -45,7 +45,7 @@ class DataAccessor {
 
     all(sql, params = []) {
         return new Promise((resolve, reject) => {
-            this.db.all(sql, params, (err, result) => {
+            this.db.all(sql, params, function (err, result) {
                 if (err) {
                     console.log(`Error running sql: ${sql}`)
                     console.error(err)
