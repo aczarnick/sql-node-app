@@ -1,7 +1,7 @@
 class Car {
-    constructor(accessor){
-        this.dao = accessor;
-    }
+  constructor(accessor) {
+    this.dao = accessor;
+  }
 }
 
 module.exports = Car;
